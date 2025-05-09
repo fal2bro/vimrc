@@ -11,6 +11,9 @@ call plug#begin()
 Plug 'Rigellute/rigel'
 Plug 'GlennLeo/cobalt2'
 Plug 'vim-airline/vim-airline'
+Plug 'preservim/nerdtree'
+Plug 'vimlab/split-term.vim'
+Plug 'tpope/vim-vinegar'
 call plug#end()
 
 set fileformat=unix "LF
@@ -54,6 +57,26 @@ syntax enable
 
 set list listchars=tab:>-,trail:-
 
+"file editor
+set splitbelow
+set termwinsize=5*0
+let g:netrw_banner=0
+let g:netrw_liststyle=3
+
+let g:netrw_browse_split=4
+let g:netrw_preview=1
+let g:netrw_winsize=75
+" NERDTree を左に表示
+"
+nnoremap <C-n> :NERDTreeToggle<CR>
+" ウィンドウ移動を楽に（Ctrl + hjkl）
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" ファイルを開いても NERDTree を閉じないようにする
+let g:nerdtree_quit_on_open = 0
 
 " Running Cat (loading animation) {{{
 let s:runcat = #{frame: 0, winid: 0, tid: 0, delay: 100, fg: 239, fgmax: 255, fgmin: 17}
