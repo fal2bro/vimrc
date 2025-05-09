@@ -27,7 +27,7 @@ set clipboard+=unnamed
 set showcmd
 
 
-"mitame
+"colorscheme
 
 set termguicolors
 syntax enable
@@ -37,6 +37,8 @@ let g:rigel_airline = 1
 let g:airline_theme ='rigel'
 let g:rigel_lightline = 1
 let g:lightline = { 'colorscheme': 'rigel'}
+
+"text
 set title
 set showcmd
 set number
