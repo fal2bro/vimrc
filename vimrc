@@ -80,6 +80,8 @@ nnoremap <C-l> <C-w>l
 " ファイルを開いても NERDTree を閉じないようにする
 let g:nerdtree_quit_on_open = 0
 
+
+
 " Running Cat (loading animation) {{{
 let s:runcat = #{frame: 0, winid: 0, tid: 0, delay: 100, fg: 239, fgmax: 255, fgmin: 17}
 fu! s:runcat.animation(_) abort
@@ -186,3 +188,7 @@ let s:runcat.cat = [
 
 com! -bar -nargs=? -complete=customlist,s:runcat_gear_list RunCat cal s:runcat.start(<f-args>)
 com! -bar RunCatStop cal s:runcat.stop()
+
+"保存・起動時に走らせる
+autocmd VimEnter * RunCat 3 | call timer_start(3000, {-> execute('RunCatStop')})
+autocmd BufWritePost * silent! RunCat | call timer_start(1000, {-> execute('RunCatStop')})
